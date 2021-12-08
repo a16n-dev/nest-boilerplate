@@ -1,17 +1,11 @@
-import {
-  Entity,
-  PrimaryGeneratedColumn,
-  Column,
-  UpdateDateColumn,
-  CreateDateColumn,
-  ManyToOne,
-} from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from 'typeorm';
 import { Exclude } from 'class-transformer';
 
 import { User } from '../user/user.entity';
+import { DatedEntity } from 'src/datedEntity';
 
 @Entity()
-export class Todo {
+export class Todo extends DatedEntity {
   @PrimaryGeneratedColumn()
   id: number;
 
@@ -21,13 +15,7 @@ export class Todo {
   @Column({ default: false })
   done: boolean;
 
-  @ManyToOne(type => User, { nullable: false, onDelete: 'RESTRICT' })
+  @ManyToOne(() => User, { nullable: false, onDelete: 'RESTRICT' })
   @Exclude()
   owner: User | number;
-
-  @CreateDateColumn()
-  createdAt: Date;
-
-  @UpdateDateColumn()
-  updatedAt: Date;
 }

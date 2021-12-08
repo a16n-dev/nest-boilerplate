@@ -10,6 +10,9 @@
 
 ⭐ Linting with prettier + eslint + lint-staged
 ⭐ Yarn
+⭐ Swagger docs
+⭐ TypeORM
+⭐ Postgres DB with docker
 
 ## Installation
 
@@ -31,14 +34,12 @@ $ npm run typeorm migration:run
 ## Running the app
 
 ```bash
+
 # development
-$ npm run start
+$ yarn dev
 
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
+# production
+$ yarn start
 ```
 
 ## Test

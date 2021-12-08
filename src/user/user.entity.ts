@@ -1,17 +1,16 @@
 import * as bcrypt from 'bcryptjs';
 import { Exclude } from 'class-transformer';
+import { DatedEntity } from 'src/datedEntity';
 import {
   Entity,
   PrimaryGeneratedColumn,
   Column,
-  CreateDateColumn,
-  UpdateDateColumn,
   BeforeInsert,
   BeforeUpdate,
 } from 'typeorm';
 
 @Entity()
-export class User {
+export class User extends DatedEntity {
   @PrimaryGeneratedColumn()
   id: number;
 
@@ -25,13 +24,8 @@ export class User {
   @Exclude()
   password: string;
 
-  @CreateDateColumn()
-  createdAt: Date;
-
-  @UpdateDateColumn()
-  updatedAt: Date;
-
   constructor(data: Partial<User> = {}) {
+    super();
     Object.assign(this, data);
   }
 

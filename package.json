@@ -92,10 +92,7 @@
       "^.+\\.ts$": "ts-jest"
     },
     "coverageDirectory": "../coverage",
-    "testEnvironment": "node",
-    "setupFiles": [
-      "@suncin/dotenv"
-    ]
+    "testEnvironment": "node"
   },
   "lint-staged": {
     "*.ts": [
