@@ -11,8 +11,8 @@
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "fixtures": "fixtures --require dotenv/config -c ormconfig.js test/fixtures",
     "start": "node dist/main.js",
-    "start:dev": "NODE_OPTIONS='-r @suncin/dotenv' nest start --watch",
-    "start:debug": "NODE_OPTIONS='-r @suncin/dotenv' nest start --debug --watch",
+    "dev": "nest start --watch",
+    "start:debug": "nest start --debug --watch",
     "migration:run": "typeorm migration:run",
     "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
     "test": "jest",
@@ -24,6 +24,7 @@
   },
   "dependencies": {
     "@nestjs/common": "^8.0.0",
+    "@nestjs/config": "^1.1.5",
     "@nestjs/core": "^8.0.5",
     "@nestjs/jwt": "^8.0.0",
     "@nestjs/passport": "^8.0.0",
