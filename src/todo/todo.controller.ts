@@ -18,11 +18,11 @@ import {
 import { TodoService } from './todo.service';
 import { JWTAuthGuard } from '../auth/guards/jwt-auth.guard';
 import { SessionAuthGuard } from '../auth/guards/session-auth.guard';
-import { TodoCreate } from './todo-create.dto';
+import { TodoCreate } from './dto/todo-create.dto';
 import { AuthUser } from '../user/user.decorator';
 import { User } from '../user/user.entity';
 import { Todo } from './todo.entity';
-import { TodoUpdate } from './todo-update.dto';
+import { TodoUpdate } from './dto/todo-update.dto';
 
 @Controller('todo')
 @UseGuards(SessionAuthGuard, JWTAuthGuard)
@@ -33,7 +33,7 @@ export class TodoController {
   @UseInterceptors(ClassSerializerInterceptor)
   createTodo(
     @Body() newTodo: TodoCreate,
-    @AuthUser() user: User,
+    @AuthUser() user: User
   ): Promise<Todo> {
     newTodo.owner = user;
 
@@ -49,7 +49,7 @@ export class TodoController {
   @UseInterceptors(ClassSerializerInterceptor)
   async getTodo(
     @Param('id', ParseIntPipe) id: number,
-    @AuthUser() user: User,
+    @AuthUser() user: User
   ): Promise<Todo> {
     const todo = await this.service.getTodo(id, user);
 
@@ -61,7 +61,7 @@ export class TodoController {
   async updateTodo(
     @Param('id', ParseIntPipe) id: number,
     @Body() updates: TodoUpdate,
-    @AuthUser() user: User,
+    @AuthUser() user: User
   ): Promise<Todo> {
     const todo = await this.service.getTodo(id, user);
 
@@ -72,7 +72,7 @@ export class TodoController {
   @HttpCode(HttpStatus.NO_CONTENT)
   async removeTodo(
     @Param('id', ParseIntPipe) id: number,
-    @AuthUser() user: User,
+    @AuthUser() user: User
   ): Promise<Todo> {
     const todo = await this.service.getTodo(id, user);
 
@@ -82,7 +82,7 @@ export class TodoController {
   @Patch(':id/done')
   async markTodoAsDone(
     @Param('id', ParseIntPipe) id: number,
-    @AuthUser() user: User,
+    @AuthUser() user: User
   ): Promise<Partial<Todo>> {
     const todo = await this.service.getTodo(id, user);
 
@@ -98,7 +98,7 @@ export class TodoController {
   @Patch(':id/pending')
   async markTodoAsPending(
     @Param('id', ParseIntPipe) id: number,
-    @AuthUser() user: User,
+    @AuthUser() user: User
   ): Promise<Partial<Todo>> {
     const todo = await this.service.getTodo(id, user);
 

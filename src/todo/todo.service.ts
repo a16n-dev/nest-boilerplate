@@ -7,15 +7,15 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 
 import { Todo } from './todo.entity';
-import { TodoCreate } from './todo-create.dto';
+import { TodoCreate } from './dto/todo-create.dto';
 import { User } from '../user/user.entity';
-import { TodoUpdate } from './todo-update.dto';
+import { TodoUpdate } from './dto/todo-update.dto';
 
 @Injectable()
 export class TodoService {
   constructor(
     @InjectRepository(Todo)
-    private readonly repo: Repository<Todo>,
+    private readonly repo: Repository<Todo>
   ) {}
 
   createTodo(newTodo: TodoCreate): Promise<Todo> {
