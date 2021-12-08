@@ -8,16 +8,27 @@
 
 ## Features
 
-⭐ Linting with prettier + eslint + lint-staged
-⭐ Yarn
-⭐ Swagger docs
-⭐ TypeORM
-⭐ Postgres DB with docker
-
+<ul style="list-style-type: '⭐'">
+<li>
+ Linting with prettier + eslint + lint-staged
+ </li>
+ <li>
+Yarn
+ </li>
+ <li>
+ Swagger docs
+ </li>
+ <li>
+TypeORM
+ </li>
+ <li>
+Postgres DB with docker
+ </li>
+</ul>
 ## Installation
 
 ```bash
-$ yarn install
+$ yarn
 $ cp .env.example .env
 ```
 
@@ -42,37 +53,10 @@ $ yarn dev
 $ yarn start
 ```
 
-## Test
-
-```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
-```
-
 ## Support
 
 Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
 
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
 ## License
 
 Nest is [MIT licensed](LICENSE).
-
-### :star2: Stargazers
-
-[![Stargazers repo roster for @leosuncin/nest-auth-example](https://reporoster.com/stars/leosuncin/nest-auth-example)](https://github.com/leosuncin/nest-auth-example/stargazers)
-
-### :fork_and_knife: Forkers
-
-[![Forkers repo roster for @leosuncin/nest-auth-example](https://reporoster.com/forks/leosuncin/nest-auth-example)](https://github.com/leosuncin/nest-auth-example/network/members)
